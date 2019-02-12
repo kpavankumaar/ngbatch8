@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		h3{
+			background-color: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<h3>welcome to html and css class</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<script type="text/javascript">
+		var first_Name = 'ravi';
+		var lastName = 'kumar';
+		var machines9 = ['laptop','desktop']
+		var $table = {
+			'make ofTable' : 'wood',
+			color: 'darkwoodcolor'
+		}
+		// var itemsIamUsing = [machines,table,'waterBottle','marker'];
+		if(false){
+			console.log('play cricket');	
+		}else if(true){
+			console.log('go to movie ');
+		}
+		if('ravi'){
+			console.log('test');
+		}
+		var num = 10;
+		while(num){
+			console.log('test1');
+			num = num - 1 ;
+		}
+		for(var i = 0 ; i < 10 ; i = i + 1){
+			console.log('test2');
+		}
+		function testRun (num1,num2){
+			console.log('perform any action');
+			var num = num1 + num2;
+			console.log('before return statment');
+			return num;
+			console.log('after return statment');
+		}
+		var sumOfNum = testRun(3,5);
+		// console.log(firstName +' ' +lastName);
+		//operators and coercing , 
+		// array methods 
+		console.log(3 > 2 > 1);
+		console.log(true > 1);
+		// call by value
+		var num1 = 10;
+		var num2 = num1;
+		num1 = 20;
+		console.log(num2);// 10 
+		// call by reference 
+		var obj = {
+			name:'krishna'
+		}
+		var obj1 = obj;
+		obj1.name = 'radhekrishna';
+		console.log(obj.name);// radhekrishna
+
+		var arr = [1,2,3,4,]
+		arr.push(5);
+		console.log(arr);
+		arr.unshift(0);
+		console.log(arr);
+
+		var arr1 = [1,2,4,5];
+		var arr1SplicedVal = arr1.splice(2,0,3);
+
+		var arr2 = [1,2,9,10,4]
+		var arr2SplicedVal = arr2.splice(2,2,3);
+		console.log(arr2);
+		var arr3 = [1,2,3,4,5,6,7];
+		var arr3SlicedVal = arr3.slice(2,5);
+
+		var arr4 = [3,5,6,8,1,4,7,2,9,10]
+		arr4.sort(function(init,final){
+			return init - final;
+		});
+		var arr5 = [1,2,3];
+		var arr6 = arr5.concat([4,5]);
+		function runTheDetails(){
+			console.log('inside run the details');
+			return 10;
+		}
+		runTheDetails();
+		var arr7 = [1,2,3]
+		var arr8 = [];
+		for(var i = 0 ; i < arr7.length; i = i + 1){
+			arr8.push(arr7[i]*2);
+			console.log(arr8);
+		}
+		var arr9 = arr7.map(function(item){
+			 item * 2 ;
+		})
+		// [param(),param(),param()]
+		var arr10 = [runTheDetails(),runTheDetails()]
+
+		
+	</script>
+</body>
+</html>
