@@ -14,12 +14,18 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 	</div>
+	<script type="text/javascript" src="data.js"></script>
 <script type="text/javascript">
 	var hideBtn = document.getElementsByTagName('button')[0];
+	var showBtn = document.getElementsByTagName('button')[1];
+
 	var para = document.getElementById('para');
 	hideBtn.onclick = function(){
 		para.style.display = 'none';
 		console.log('you clicked on hide .So hide the para');
+	}
+	showBtn.onclick = function(){
+		para.style.display = 'block';
 	}
 	// execution context 
 	console.log(firstName);
