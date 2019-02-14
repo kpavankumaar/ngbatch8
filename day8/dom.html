@@ -2,22 +2,47 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		div#container div{
+			width:200px;
+			border:2px solid orange;
+			float:left;
+		}
+	</style>
 </head>
 <body>
+	<!-- <h2>customers details</h2> -->
+	<div id="container">
+		<h3>firstName lastName</h3>
+		<h4>address</h4>
 
+		<ul>
+			<li>flat no 02 , streetno11</li>
+			<li>hyderabad</li>
+
+		</ul>
+		
+	</div>
 	<script type="text/javascript">
 		// console.log(data);
 	</script>
 	<script type="text/javascript" src="data.js"></script>
 	<script type="text/javascript">
-
-	console.log(data);
+		var parentContainer = document.getElementById('container');
+		console.log(data);
 		for(var i = 0 ; i < data.length; i = i+1  ){
 			var heading = document.createElement('h3');
-
+			var container = document.createElement('div');
+			var listGroup = document.createElement('ul');
+			var listItem = document.createElement('li');
 			console.log(data[i].firstName);
 			heading.innerText = data[i].firstName;
-			document.body.appendChild(heading);
+			listItem.innerText = data[i].city
+			listGroup.appendChild(listItem);
+			container.appendChild(heading);
+			container.appendChild(listGroup)
+			parentContainer.appendChild(container);
+			
 
 		}
 	</script>
