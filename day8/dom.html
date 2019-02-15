@@ -21,30 +21,74 @@
 			<li>hyderabad</li>
 
 		</ul>
-		
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</div>
 	<script type="text/javascript">
 		// console.log(data);
 	</script>
 	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="sample.js"></script>
 	<script type="text/javascript">
-		var parentContainer = document.getElementById('container');
-		console.log(data);
-		for(var i = 0 ; i < data.length; i = i+1  ){
-			var heading = document.createElement('h3');
-			var container = document.createElement('div');
-			var listGroup = document.createElement('ul');
-			var listItem = document.createElement('li');
-			console.log(data[i].firstName);
-			heading.innerText = data[i].firstName;
-			listItem.innerText = data[i].city
-			listGroup.appendChild(listItem);
-			container.appendChild(heading);
-			container.appendChild(listGroup)
-			parentContainer.appendChild(container);
-			
-
+		// IIFE
+		(function(global){
+				var domObject = {};
+				domObject.parentContainer = document.getElementById('container');
+				console.log(data);
+				for(var i = 0 ; i < data.length; i = i+1  ){
+					domObject.heading = document.createElement('h3');
+					domObject.container = document.createElement('div');
+					domObject.listGroup = document.createElement('ul');
+					domObject.listItem = document.createElement('li');
+					console.log(data[i].firstName);
+					domObject.heading.innerText = data[i].firstName;
+					domObject.listItem.innerText = data[i].city
+					domObject.listGroup.appendChild(domObject.listItem);
+					domObject.container.appendChild(domObject.heading);
+					domObject.container.appendChild(domObject.listGroup)
+					domObject.parentContainer.appendChild(domObject.container);
+				}	
+				global._heading = domObject.heading;
+				global._domObject = domObject;
+		})(window);
+		
+		(function(){
+				var testVar = 20;
+				console.log(testVar);
+				console.log('IIFE',this);
+		})();
+		// --------------------------------------------------------------
+		// call by reference and call by value
+		var num = 10 ;
+		var num1 = num;
+		num1 = 30;
+		console.log(num);
+		// 
+		var obj = {
+			name:'krishna'
 		}
+		var obj1 = obj;
+		obj1.name = 'radhe';
+		console.log(obj.name);
+		// creating a object 
+		function createFormData(){
+				console.log(this);
+		}
+		console.log(this);
+		window.createFormData();
+		var sampleObj = {
+			num:10,
+			test:function(){
+				console.log(this);
+			}
+		}
+		sampleObj.test();
+		// var userData = new createFormData();		
 	</script>
+
 </body>
 </html>
