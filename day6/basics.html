@@ -21,11 +21,13 @@
 	var showBtn = document.getElementsByTagName('button')[1];
 
 	var para = document.getElementById('para');
-	hideBtn.onclick = function(){
+	hideBtn.onclick = function(e){
+		console.log('event object',e)
 		para.style.display = 'none';
 		console.log('you clicked on hide .So hide the para');
 	}
 	showBtn.onclick = function(){
+		console.log(this);
 		para.style.display = 'block';
 	}
 	// execution context 

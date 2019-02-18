@@ -37,8 +37,7 @@
 		// IIFE
 		(function(global){
 				var domObject = {};
-				domObject.parentContainer = document.getElementById('container');
-				console.log(data);
+				domObject.parentContainer = document.getElementById('container'); console.log(data);
 				for(var i = 0 ; i < data.length; i = i+1  ){
 					domObject.heading = document.createElement('h3');
 					domObject.container = document.createElement('div');
@@ -84,6 +83,12 @@
 			num:10,
 			test:function(){
 				console.log(this);
+				var selfThis = this;
+				function test1(){
+					console.log(this);
+					console.log(selfThis)
+				}
+				test1()
 			}
 		}
 		sampleObj.test();
