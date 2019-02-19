@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<div>
+			<label>Email</label>
+			<input type="email" name="email">	
+		</div>
+		<div>
+			<label>Password</label>
+			<input type="password" name="password">	
+		</div>
+		<div>
+			<button>Submit</button>
+		</div>	
+	</div>
+	
+	<script type="text/javascript">
+		var emailEl = document.getElementsByName('email')[0];
+		var pwdEl = document.getElementsByName('password')[0];
+		var submitBtn = document.getElementsByTagName('button')[0];
+		var data;
+		var xhr
+		submitBtn.onclick = function(){
+			// var data = {}
+			// data.email =  emailEl.value;
+			// data.password = pwdEl.value;
+			// console.log(data);
+			data = new BuildJsonData(emailEl.value,pwdEl.value);
+			sendDataToServer(data)
+			
+			
+		}
+		function BuildJsonData(emailVal,passwordVal){			
+			this.email = emailVal;
+			this.password = passwordVal;
+		}
+		function sendDataToServer(data){
+			xhr = new XMLHttpRequest();
+			// xhr.open(GET,)
+		}
+	</script>
+	<script type="text/javascript" src="oojs.js"></script>
+</body>
+</html>

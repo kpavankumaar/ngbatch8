@@ -5,6 +5,9 @@
 
 </head>
 <body>
+	<div id="container">
+		
+	</div>
 	<h3>welcome to javascript class</h3>
 	
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -24,8 +27,30 @@
 			console.log(firstName);
 		}
 		printName();
-		var heading = document.getElementsByTagName('h3');
 		
+		var arr = ['ravi','krishna'];
+		var cust1 = {
+			firstName : 'ravi',
+			lastName:'kumar',
+			age: 21,
+		}
+		var bottle ={
+			color:'blue',
+			action: function(item){
+				console.log('holds one litre ', item);
+			}
+		}
+		var heading = document.getElementsByTagName('h3')[0];
+		var container = document.getElementById('container');
+		var h3Obj = document.createElement('h3');
+		h3Obj.innerText = 'heading';
+		container.appendChild(h3Obj);
+		console.log(container);
+
+		heading.onclick = function(){
+			console.log('you have clicked on h3 element');
+		}
+
 	</script>
 </body>
 </html>
