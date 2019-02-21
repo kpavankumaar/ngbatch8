@@ -22,15 +22,15 @@
 		var emailEl = document.getElementsByName('email')[0];
 		var pwdEl = document.getElementsByName('password')[0];
 		var submitBtn = document.getElementsByTagName('button')[0];
-		var data;
-		var xhr
+		var loginCredentials;
+		var xhr = new XMLHttpRequest();
 		submitBtn.onclick = function(){
 			// var data = {}
 			// data.email =  emailEl.value;
 			// data.password = pwdEl.value;
 			// console.log(data);
-			data = new BuildJsonData(emailEl.value,pwdEl.value);
-			sendDataToServer(data)
+			loginCredentials = new BuildJsonData(emailEl.value,pwdEl.value);
+			sendDataToServer(loginCredentials);
 			
 			
 		}
@@ -39,8 +39,12 @@
 			this.password = passwordVal;
 		}
 		function sendDataToServer(data){
-			xhr = new XMLHttpRequest();
-			// xhr.open(GET,)
+			console.log(data);
+			xhr.open('GET','https://jsonplaceholder.typicode.com/users',true)
+			xhr.onReadyStateChange = function(){
+				console.log(xhr.response)
+			}
+			xhr.send(null);
 		}
 	</script>
 	<script type="text/javascript" src="oojs.js"></script>
