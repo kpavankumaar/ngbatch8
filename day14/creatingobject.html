@@ -24,8 +24,10 @@
 		var submitBtn = document.getElementsByTagName('button')[0];
 		var loginCredentials;
 		var xhr = new XMLHttpRequest();
+		
+
 		submitBtn.onclick = function(){
-			// var data = {}
+	promise.then(val)		// var data = {}
 			// data.email =  emailEl.value;
 			// data.password = pwdEl.value;
 			// console.log(data);
@@ -40,12 +42,36 @@
 		}
 		function sendDataToServer(data){
 			console.log(data);
-			xhr.open('GET','https://jsonplaceholder.typicode.com/users',true)
-			xhr.onReadyStateChange = function(){
-				console.log(xhr.response)
+			xhr.open('get','https://jsonplaceholder.typicode.com/posts',true);
+			console.log('xhr.readyState',xhr.readyState);
+			console.warn ('xhr.status', xhr.status);
+			xhr.onreadystatechange = function(){
+				console.log('xhr.readyState',xhr.readyState);
+				console.log('xhr.status',xhr.status);
+				if(xhr.readyState == 4 && xhr.status == 200){
+					console.log('xhr.response', xhr.responseText );
+				}else{
+					console.error('err ', xhr.readyState , xhr.status)
+					// console.log('xhr.response', xhr.responseText );
+				}
+				
 			}
-			xhr.send(null);
+			console.log('xhr.readyState before send',xhr.readyState);
+			xhr.send(JSON.stringify(data));
+			console.log('xhr.readyState after send',xhr.readyState);
+
+			xhr.onprogress = function(e){
+				console.log('onprogress',e, xhr.responseText );
+				console.warn('xhr.readyState', xhr.readyState);
+			}
+			xhr.onloadend = function(e){
+				console.log('onloadend xhr.readyState value', xhr.readyState );
+			}
+			xhr.onloadstart = function(e){
+				console.info('onloadstart xhr.readyState value', xhr.readyState);
+			}
 		}
+
 	</script>
 	<script type="text/javascript" src="oojs.js"></script>
 </body>

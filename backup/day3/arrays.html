@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	var arr1 = [1,2,3,4,5]
+	// arr1.push(6);
+	// arr1.unshift(0);
+
+	var arrNum = arr1.splice(2,0,2.5);
+	var num = arr1.splice(2,1);
+	var arr2 = [1,2,3,4,5,6];
+	var numVal = arr2.pop();
+	var firstItemOfArr = arr2.shift();
+
+	var arr3 = [1,2,3,4,5,6];
+	var slicedArr = arr3.slice(1,3);
+	var arr4 = arr3.concat([7,8,9]);
+
+	var selectObj = document.createElement('select');
+	for (var i = arr3.length - 1; i >= 0; i--) {
+		var option = document.createElement('option');
+		option.innerText = arr3[i];
+		selectObj.appendChild(option);
+	}
+	document.body.appendChild(selectObj);
+	// add property to each object of arr example interviewattended : boolean value 
+	var arr4 = arr3.map(function(val){
+		val * 2 ;
+		if(val > 3){
+			return val;
+		}
+	});
+	// select students whose gpa greater than 3
+	var arr5 = arr3.filter(function(val){
+		if(val > 3){
+			return val;
+		}
+	});
+	var arr6 = arr3.reduce(function(cum,init,index,arr){
+		console.log('cummulativevalue', cum);
+		console.log('initial value',init);
+		console.log('index num',index);
+		console.log('arr3',arr);
+		return cum + init;
+	},10);
+	// arr7 can be collection of data from different colleges
+	var arr7 =  [[1,2],[3,4],[5,6]];
+	var arr8 = arr7.reduce(function(cum,init,index,arr){
+		return cum.concat(init);
+	})
+
+</script>
+
+</body>
+</html>
