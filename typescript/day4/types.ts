@@ -27,14 +27,37 @@ studentData = {
     'name' :'ravi',
     'age': 20,
     'education' : ''
-
 }
 let studentData1:Obj = {
     name :'ravi',
     age: 20,
- 
-    
 }
 studentData.address = 'hyderabad';
 
+interface Obj_1 {
+    firstName:string,
+    vehicle?:string,
+    
+}
+function test_1(name:{firstName:string}){
+    console.log(name);
+}
+// test_1('ravi');
+// test_1(10);
 
+test_1({firstName:'ravi'});
+function test_2(name:Obj_1):Array<any>{
+    return [10,20];
+};
+test_2({firstName:'krishna',vehicle:''});
+
+let testObj:Obj_1 = {
+    firstName:'krishna',
+    vehicle:'srikanth',
+    
+}
+
+interface TypeDefForFunction {
+    ():number
+}
+function 
