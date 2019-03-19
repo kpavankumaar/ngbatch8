@@ -58,6 +58,13 @@ let testObj:Obj_1 = {
 }
 
 interface TypeDefForFunction {
-    ():number
+    firstName:string;
+    test():number;
 }
-function 
+let preDefFn : TypeDefForFunction;
+preDefFn = {
+    firstName: 'ravi',
+    test:function(){
+        return 10
+    }
+}
