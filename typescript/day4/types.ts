@@ -68,3 +68,6 @@ preDefFn = {
         return 10
     }
 }
+function test_3():TypeDefForFunction{
+    return preDefFn;
+}
