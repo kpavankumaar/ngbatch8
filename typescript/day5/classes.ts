@@ -75,9 +75,18 @@ class Mobile implements PartsOfMobile{
     public get getBatteryVal() : string {
         return this.battery;
     }
-    
+    test = () => {}
 
 }
 let samsungPhone = new Mobile('J7');
 samsungPhone.setBatteryVal = '3000mah';
+samsungPhone.getBatteryVal;
 
+abstract class Cellphone{
+
+}
+
+class NokiaBrand extends Cellphone {
+
+}
+let nokia = new NokiaBrand();
