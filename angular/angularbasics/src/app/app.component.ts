@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  updateInputVal(val){
+    console.log(val);
+  }
+  constructor(){
+    this.title = 'angular'
+    console.log(this.title);
+  }
 }
