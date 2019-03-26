@@ -1,3 +1,11 @@
 <h3>welcome to angular classes</h3>
 {{title}}
 <label>Details</label> <input type="text" (input)='updateInputVal($event.target.value)'>
+
+<div [style.color] = color>
+    <p [style.width] = widthVal>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit architecto hic ipsum. Qui itaque repudiandae mollitia error adipisci ipsa excepturi quam et corrupti minus, nobis quidem! Voluptatem temporibus blanditiis fugit?</p>
+</div>
+<div>
+    <label>Details</label> <input type="text" (keyup.enter)='updateInputVal($event.target.value)'>
+    {{data}}
+</div>
