@@ -11,5 +11,8 @@ export class TemplateDrivenFormComponent implements OnInit {
 
   ngOnInit() {
   }
+  sendData(val){
+    console.log(val);
+  }
 
 }

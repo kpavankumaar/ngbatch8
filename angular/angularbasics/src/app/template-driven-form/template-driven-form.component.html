@@ -1,3 +1,43 @@
-<p>
-  template-driven-form works!
-</p>
+<div class="container">
+  <form #loginForm =  "ngForm" (ngSubmit)= 'sendData(loginForm)'>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        name="emailControl"
+        ngModel
+        #emailVar = "ngModel"
+        required
+        [ngClass] = "{'is-invalid':emailVar.touched && emailVar.invalid}"
+        id="exampleInputEmail1" 
+        aria-describedby="emailHelp" 
+        placeholder="Enter email">
+        <p>valid : {{emailVar.valid}}</p>  
+        <p>invalid : {{emailVar.invalid}}</p>
+        <p>touched : {{emailVar.touched}}</p>
+        <p>untouched : {{emailVar.untouched}}</p>
+        <p>pristine : {{emailVar.pristine}}</p>
+        <p>dirty : {{emailVar.dirty}}</p>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        ngModel
+        required
+        name="passwordControl"
+        #pwdVar = "ngModel"
+        [ngClass] = "{'is-invalid':pwdVar.invalid}"
+        id="exampleInputPassword1"
+        placeholder="Password">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled] = '!loginForm.valid' >Submit</button>
+    {{loginForm.valid}}
+  </form>
+</div>
