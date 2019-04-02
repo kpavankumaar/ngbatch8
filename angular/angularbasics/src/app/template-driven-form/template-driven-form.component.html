@@ -9,16 +9,18 @@
         ngModel
         #emailVar = "ngModel"
         required
+        email
         [ngClass] = "{'is-invalid':emailVar.touched && emailVar.invalid}"
         id="exampleInputEmail1" 
         aria-describedby="emailHelp" 
         placeholder="Enter email">
-        <p>valid : {{emailVar.valid}}</p>  
-        <p>invalid : {{emailVar.invalid}}</p>
-        <p>touched : {{emailVar.touched}}</p>
-        <p>untouched : {{emailVar.untouched}}</p>
-        <p>pristine : {{emailVar.pristine}}</p>
-        <p>dirty : {{emailVar.dirty}}</p>
+        
+        <div class = "invalid-feedback"> 
+          <label *ngIf = 'emailVar.errors.required'> Username is mandatory. </label>
+        
+          <label *ngIf = 'loginForm.controls.emailControl.errors?.email'> Enter a valid email address</label>
+        </div>
+
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
@@ -27,17 +29,27 @@
         class="form-control" 
         ngModel
         required
+        minlength="6"
         name="passwordControl"
         #pwdVar = "ngModel"
-        [ngClass] = "{'is-invalid':pwdVar.invalid}"
+        [ngClass] = "{'is-invalid':pwdVar.invalid && (pwdVar.touched || pwdVar.dirty)}"
         id="exampleInputPassword1"
         placeholder="Password">
+        <div class = "invalid-feedback"> 
+          <!-- <label *ngIf = 'pwdVar.errors.required'> Enter a password </label> -->
+        
+          <label *ngIf = 'loginForm.controls.passwordControl.errors?.minlength'> Passord must be more than 6 characters</label>
+        </div>
     </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
+    
     <button type="submit" class="btn btn-primary" [disabled] = '!loginForm.valid' >Submit</button>
     {{loginForm.valid}}
+    <p>valid : {{emailVar.valid}}{{loginForm.controls.emailControl.valid}}</p>  
+    <p>invalid : {{emailVar.invalid}}</p>
+    <p>touched : {{emailVar.touched}}</p>
+    <p>untouched : {{emailVar.untouched}}</p>
+    <p>pristine : {{emailVar.pristine}}</p>
+    <p>dirty : {{emailVar.dirty}}</p>
+        
   </form>
 </div>
