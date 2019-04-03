@@ -16,7 +16,7 @@
         placeholder="Enter email">
         
         <div class = "invalid-feedback"> 
-          <label *ngIf = 'emailVar.errors.required'> Username is mandatory. </label>
+          <label *ngIf = 'emailVar.errors?.required'> Username is mandatory. </label>
         
           <label *ngIf = 'loginForm.controls.emailControl.errors?.email'> Enter a valid email address</label>
         </div>
@@ -35,21 +35,45 @@
         [ngClass] = "{'is-invalid':pwdVar.invalid && (pwdVar.touched || pwdVar.dirty)}"
         id="exampleInputPassword1"
         placeholder="Password">
+        
         <div class = "invalid-feedback"> 
-          <!-- <label *ngIf = 'pwdVar.errors.required'> Enter a password </label> -->
+          <label *ngIf = 'pwdVar.errors?.required'> Enter a password </label>
         
           <label *ngIf = 'loginForm.controls.passwordControl.errors?.minlength'> Passord must be more than 6 characters</label>
         </div>
     </div>
-    
-    <button type="submit" class="btn btn-primary" [disabled] = '!loginForm.valid' >Submit</button>
-    {{loginForm.valid}}
-    <p>valid : {{emailVar.valid}}{{loginForm.controls.emailControl.valid}}</p>  
-    <p>invalid : {{emailVar.invalid}}</p>
-    <p>touched : {{emailVar.touched}}</p>
-    <p>untouched : {{emailVar.untouched}}</p>
-    <p>pristine : {{emailVar.pristine}}</p>
-    <p>dirty : {{emailVar.dirty}}</p>
+    <div class="form-group form-check">
+      <input type="checkbox" 
+      ngModel
+      name="checkBoxControl"
+      class="form-check-input" 
+      id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    {{loginForm.controls.checkBoxControl.value}}
+    <div *ngIf = "loginForm.controls.checkBoxControl.value">
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="phone" class="form-control" id="phone" placeholder="Enter phone">
         
+      </div>
+     
+      <h3>Address</h3>
+      <div class="form-group">
+        <label for="hno">HNO</label>
+        <input type="text" class="form-control" id="hno" placeholder="House number">
+      </div>
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" class="form-control" id="street" placeholder="street name">
+      </div>
+      <div class="form-group">
+        <label for="City">City</label>
+        <input type="text" class="form-control" id="city" placeholder="Enter City">
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary"[title]= 'loginForm.valid ? "click to submit":"Please update the required fields"' [disabled] = '!loginForm.control.valid' >Submit</button>
+    
   </form>
 </div>
