@@ -1,0 +1,76 @@
+<div class="container">
+  <form [formGroup] =  "customerInfo" (ngSubmit)= 'sendData()'>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        formControlName = "userName"
+        required
+        email
+        [ngClass] = "{'is-invalid':customerInfo.controls.userName.touched && customerInfo.controls.userName.invalid}"
+        id="exampleInputEmail1" 
+        aria-describedby="emailHelp" 
+        placeholder="Enter email">
+        
+        <div class = "invalid-feedback"> 
+          <label *ngIf = 'customerInfo.controls.userName.errors?.required'> Username is mandatory. </label>
+        
+          <label *ngIf = 'customerInfo.controls.userName.errors?.email'> Enter a valid email address</label>
+        </div>
+
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        ngModel
+        required
+        minlength="6"
+        formControlName = "password" 
+        [ngClass] = "{'is-invalid':customerInfo.controls.password.invalid && (customerInfo.controls.password.touched || customerInfo.controls.password.dirty)}"
+        id="exampleInputPassword1"
+        placeholder="Password">
+        
+        <div class = "invalid-feedback"> 
+          <label *ngIf = 'customerInfo.controls.password.errors?.required'> Enter a password </label>
+        
+          <label *ngIf = 'customerInfo.controls.password.errors?.minlength'> Passord must be more than 6 characters</label>
+        </div>
+    </div>
+     <!--<div class="form-group form-check">
+      <input type="checkbox" 
+      ngModel
+      name="checkBoxControl"
+      class="form-check-input" 
+      id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    {{loginForm.controls.checkBoxControl.value}}
+    <div *ngIf = "loginForm.controls.checkBoxControl.value">
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="phone" class="form-control" id="phone" placeholder="Enter phone">
+        
+      </div>
+     
+      <h3>Address</h3>
+      <div class="form-group">
+        <label for="hno">HNO</label>
+        <input type="text" class="form-control" id="hno" placeholder="House number">
+      </div>
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" class="form-control" id="street" placeholder="street name">
+      </div>
+      <div class="form-group">
+        <label for="City">City</label>
+        <input type="text" class="form-control" id="city" placeholder="Enter City">
+      </div>
+    </div>
+     -->
+    <button type="submit" class="btn btn-primary"[title]= 'customerInfo.valid ? "click to submit":"Please update the required fields"' [disabled] = '!customerInfo.valid' >Submit</button>
+    
+  </form>
+</div>
