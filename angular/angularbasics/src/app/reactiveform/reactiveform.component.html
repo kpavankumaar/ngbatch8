@@ -1,35 +1,71 @@
 <div class="container">
   <form [formGroup] =  "customerInfo" (ngSubmit)= 'sendData()'>
     <div class="form-group">
+      <label for="exampleInputPassword1">FirstName</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        formControlName = "firstName" 
+        [ngClass] = "{'is-invalid':customerInfo.controls.firstName.invalid 
+                      && (customerInfo.controls.firstName.touched 
+                      || customerInfo.controls.firstName.dirty)}"
+        id="firstname"
+        placeholder="First Name">
+        
+        <div class = "invalid-feedback"> 
+          <label *ngIf = 'customerInfo.controls.firstName.errors?.required'> Enter a password </label>
+        
+          <label *ngIf = 'customerInfo.controls.firstName.errors?.minlength'> Passord must be more than 6 characters</label>
+        </div>
+    </div>
+   <!-- lastname -->
+    <div class="form-group">
+        <label for="exampleInputPassword1">LastName</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          formControlName = "lastName" 
+          [ngClass] = "{'is-invalid':customerInfo.controls.lastName.invalid 
+                        && (customerInfo.controls.lastName.touched 
+                        || customerInfo.controls.lastName.dirty)}"
+          id="lastname"
+          placeholder="Last Name">
+          
+          <div class = "invalid-feedback"> 
+            <label *ngIf = 'customerInfo.controls.lastName.errors?.required'> Enter a password </label>
+          
+            <label *ngIf = 'customerInfo.controls.lastName.errors?.minlength'> Passord must be more than 6 characters</label>
+          </div>
+    </div>
+     <!-- email -->
+    <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input 
         type="email" 
         class="form-control" 
-        formControlName = "userName"
-        required
-        email
-        [ngClass] = "{'is-invalid':customerInfo.controls.userName.touched && customerInfo.controls.userName.invalid}"
+        formControlName = "emailControl"
+        
+        [ngClass] = "{'is-invalid':customerInfo.controls.emailControl.touched 
+                    && customerInfo.controls.emailControl.invalid}"
         id="exampleInputEmail1" 
         aria-describedby="emailHelp" 
         placeholder="Enter email">
         
         <div class = "invalid-feedback"> 
-          <label *ngIf = 'customerInfo.controls.userName.errors?.required'> Username is mandatory. </label>
-        
-          <label *ngIf = 'customerInfo.controls.userName.errors?.email'> Enter a valid email address</label>
+          <label *ngIf = 'customerInfo.controls.emailControl.errors?.required'> Username is mandatory. </label>
+          <label *ngIf = 'customerInfo.controls.emailControl.errors?.email'> Enter a valid email address</label>
         </div>
 
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input 
         type="password" 
         class="form-control" 
-        ngModel
-        required
-        minlength="6"
         formControlName = "password" 
-        [ngClass] = "{'is-invalid':customerInfo.controls.password.invalid && (customerInfo.controls.password.touched || customerInfo.controls.password.dirty)}"
+        [ngClass] = "{'is-invalid':customerInfo.controls.password.invalid 
+                      && (customerInfo.controls.password.touched 
+                      || customerInfo.controls.password.dirty)}"
         id="exampleInputPassword1"
         placeholder="Password">
         
@@ -38,20 +74,19 @@
         
           <label *ngIf = 'customerInfo.controls.password.errors?.minlength'> Passord must be more than 6 characters</label>
         </div>
-    </div>
-     <!--<div class="form-group form-check">
+    </div> -->
+    <!-- Checkbox -->
+    <div class="form-group form-check">
       <input type="checkbox" 
-      ngModel
-      name="checkBoxControl"
+      formControlName = 'checkin'
       class="form-check-input" 
       id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    {{loginForm.controls.checkBoxControl.value}}
-    <div *ngIf = "loginForm.controls.checkBoxControl.value">
+    <div *ngIf = "customerInfo.controls.checkin.value">
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="phone" class="form-control" id="phone" placeholder="Enter phone">
+        <input type="text" class="form-control" formControlName = 'phoneControl' id="phone" placeholder="Enter phone">
         
       </div>
      
@@ -69,7 +104,7 @@
         <input type="text" class="form-control" id="city" placeholder="Enter City">
       </div>
     </div>
-     -->
+    
     <button type="submit" class="btn btn-primary"[title]= 'customerInfo.valid ? "click to submit":"Please update the required fields"' [disabled] = '!customerInfo.valid' >Submit</button>
     
   </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { formControlBinding } from '@angular/forms/src/directives/ng_model';
 
 @Component({
   selector: 'app-reactiveform',
@@ -12,8 +13,13 @@ export class ReactiveformComponent implements OnInit {
 
   ngOnInit() {
     this.customerInfo = new FormGroup({
-      userName: new FormControl('pavan@gmail.com'),
-      password: new FormControl('')
+      firstName: new FormControl('',Validators.required),
+      lastName: new FormControl('',Validators.required),
+      emailControl: new FormControl('',[Validators.required,Validators.email]),
+      checkin: new FormControl('true')
+      // password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+
+
     })
   }
   sendData(){
