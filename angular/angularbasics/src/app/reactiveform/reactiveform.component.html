@@ -6,7 +6,7 @@
         type="text" 
         class="form-control" 
         formControlName = "firstName" 
-        [ngClass] = "{'is-invalid':customerInfo.controls.firstName.invalid 
+        [ngClass] = "{'is-invalid':customerInfo.get('firstName').invalid 
                       && (customerInfo.controls.firstName.touched 
                       || customerInfo.controls.firstName.dirty)}"
         id="firstname"
@@ -38,25 +38,47 @@
           </div>
     </div>
      <!-- email -->
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input 
-        type="email" 
-        class="form-control" 
-        formControlName = "emailControl"
-        
-        [ngClass] = "{'is-invalid':customerInfo.controls.emailControl.touched 
-                    && customerInfo.controls.emailControl.invalid}"
-        id="exampleInputEmail1" 
-        aria-describedby="emailHelp" 
-        placeholder="Enter email">
-        
-        <div class = "invalid-feedback"> 
-          <label *ngIf = 'customerInfo.controls.emailControl.errors?.required'> Username is mandatory. </label>
-          <label *ngIf = 'customerInfo.controls.emailControl.errors?.email'> Enter a valid email address</label>
-        </div>
-
+    <div formGroupName = "emailGroup">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          formControlName = "emailControl"
+          
+          [ngClass] = "{'is-invalid':customerInfo.controls.emailControl.touched 
+                      && customerInfo.controls.emailControl.invalid}"
+          id="exampleInputEmail1" 
+          aria-describedby="emailHelp" 
+          placeholder="Enter email">
+          
+          <div class = "invalid-feedback"> 
+            <label *ngIf = 'customerInfo.controls.emailControl.errors?.required'> Username is mandatory. </label>
+            <label *ngIf = 'customerInfo.controls.emailControl.errors?.email'> Enter a valid email address</label>
+          </div>
+  
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          formControlName = "confirmEmailControl"
+          
+          [ngClass] = "{'is-invalid':customerInfo.controls.confirmEmailControl.touched 
+                      && customerInfo.controls.confirmEmailControl.invalid}"
+          id="exampleInputEmail1" 
+          aria-describedby="emailHelp" 
+          placeholder="Enter email">
+          
+          <div class = "invalid-feedback"> 
+            <label *ngIf = 'customerInfo.controls.emailControl.errors?.required'> Username is mandatory. </label>
+            <label *ngIf = 'customerInfo.controls.emailControl.errors?.email'> Enter a valid email address</label>
+          </div>
+  
+      </div>
     </div>
+    
     <!-- <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input 
@@ -86,10 +108,17 @@
     <div *ngIf = "customerInfo.controls.checkin.value">
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" formControlName = 'phoneControl' id="phone" placeholder="Enter phone">
-        
+        <input type="phone" class="form-control" formControlName = 'phoneControl' id="phone" placeholder="Enter phone">
+        <label *ngIf = "customerInfo.get('phoneControl').invalid">phone number must be a 10 digit number</label>
       </div>
-     
+      <!-- custom validation -->
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <input type="number" min='1' max="5" class="form-control" id="hno" placeholder="House number">
+        <div class="invalid-feedback">
+          <label *ngIf = ''> </label>
+        </div>
+      </div>
       <h3>Address</h3>
       <div class="form-group">
         <label for="hno">HNO</label>
