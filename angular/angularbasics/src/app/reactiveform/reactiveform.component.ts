@@ -14,14 +14,18 @@ function verifyEmail(c:AbstractControl):{[key:string]:Boolean} | null {
     }
   }
 }
-function ratingValidator(){
+function ratingValidator(min,max){
   return function ratingCheck(c:AbstractControl):{[key:string]:boolean} | null{
-    if(c.value > 0 && c.value < 6){
-      return null
+    console.log(c.value, min , max);
+    if(c.value >= min && c.value <= max){
+      console.log('true condition ')
+      return null;
+      
     }else{
+      console.log('false stating message')
       return {
         ratingMatch: true
-      }
+      };
     }
   }
 }
@@ -56,7 +60,8 @@ export class ReactiveformComponent implements OnInit {
       checkin: new FormControl('true'),
       phoneControl: new FormControl('',phoneLengthValidation),
       // password: new FormControl('',[Validators.required,Validators.minLength(6)]),
-      rating:new FormControl('',ratingValidator())
+      rating:new FormControl('',ratingValidator(0,10)),
+      notification: new FormControl('')
     })
   }
   sendData(){
