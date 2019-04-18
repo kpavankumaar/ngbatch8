@@ -58,7 +58,7 @@ export class ReactiveformComponent implements OnInit {
         confirmEmailControl: new FormControl('',[Validators.required,Validators.email]),
       },verifyEmail),
       checkin: new FormControl('true'),
-      phoneControl: new FormControl('',phoneLengthValidation),
+      phoneControl: new FormControl(''),
       // password: new FormControl('',[Validators.required,Validators.minLength(6)]),
       rating:new FormControl('',ratingValidator(0,10)),
       notification: new FormControl('')
@@ -67,5 +67,13 @@ export class ReactiveformComponent implements OnInit {
   sendData(){
     console.log(this.customerInfo);
   }
-
+  setNotification(notify:string){
+    let phone = this.customerInfo.get('phoneControl');
+    if(notify == 'phone'){
+      phone.setValidators([Validators.required,phoneLengthValidation]);
+    }else{
+      phone.clearValidators();
+    }
+    phone.updateValueAndValidity();
+  }
 }

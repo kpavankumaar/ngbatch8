@@ -38,16 +38,30 @@
           </div>
     </div>
     <!-- optional validation -->
-    <div class="form-group">
-        <label for="exampleInputPassword1">Email</label>
-        <input 
-          type="radio" 
-          class="form-control" 
-          formControlName = "notification" 
-          (click) = "setNotification('email')">
-          <label> </label>
+    <div class="form-check">
+      <input 
+        class="form-check-input" 
+        type="radio" 
+        formControlName = "notification" 
+        (click) = "setNotification('email')"
+        id="exampleRadios1" 
+        value="option1" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        Email
+      </label>
     </div>
-    
+    <div class="form-check">
+      <input 
+        class="form-check-input" 
+        type="radio" 
+        formControlName = "notification" 
+        (click) = "setNotification('phone')" 
+        id="exampleRadios2" 
+        value="option2">
+      <label class="form-check-label" for="exampleRadios2">
+        Phone
+      </label>
+    </div> 
     <div formGroupName = "emailGroup">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -121,7 +135,13 @@
     <div *ngIf = "customerInfo.controls.checkin.value">
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="phone" class="form-control" formControlName = 'phoneControl' id="phone" placeholder="Enter phone">
+        <input 
+          type="phone" 
+          class="form-control" 
+          formControlName = 'phoneControl' 
+          [ngClass]="{'is-invalid': customerInfo.get('phoneControl').invalid}"
+          id="phone" 
+          placeholder="Enter phone">
         <label *ngIf = "customerInfo.get('phoneControl').invalid">phone number must be a 10 digit number</label>
       </div>
       <!-- custom validation -->
