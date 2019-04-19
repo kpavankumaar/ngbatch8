@@ -32,4 +32,12 @@
     <p>{{userContent.value}}</p>
 </div> -->
 <!-- <app-template-driven-form></app-template-driven-form> -->
-<app-reactiveform></app-reactiveform>
+<!-- <app-reactiveform></app-reactiveform> -->
+<app-navbar (sendDetails) = "receiveDataFromNavbar($event)"></app-navbar>
+<div *ngIf="showCustomer">
+    <app-customers [sampleNumbers] = 'sampleData'></app-customers>
+</div>
+<div *ngIf = "showOrder">
+    <app-orders></app-orders>
+</div>
+<router-outlet></router-outlet>

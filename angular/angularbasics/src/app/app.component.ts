@@ -6,8 +6,18 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showCustomer = false;
+  showOrder = false;
   @ViewChild('userContent') elementFromTemplate:ElementRef;
-
+  receiveDataFromNavbar(val){
+    if(val == "customers"){
+      this.showCustomer = true;
+      this.showOrder = false;
+    }else{
+      this.showCustomer = false;
+      this.showOrder = true;
+    }
+  }
   testClick(val){
     console.log(val);
     this.elementFromTemplate.nativeElement.style.color='green';
