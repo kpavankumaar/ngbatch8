@@ -8,9 +8,9 @@ import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { routes } from './routes';
+import { AppRoutingModule } from './routes';
+
 import { DetailedOrderComponent } from './detailed-order/detailed-order.component';
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { DetailedOrderComponent } from './detailed-order/detailed-order.componen
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
