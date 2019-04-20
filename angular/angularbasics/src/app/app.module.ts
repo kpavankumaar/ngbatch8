@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { routes } from './routes';
+import { DetailedOrderComponent } from './detailed-order/detailed-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { routes } from './routes';
     CustomersComponent,
     OrdersComponent,
     NavbarComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    DetailedOrderComponent
   ],
   imports: [
     BrowserModule,
