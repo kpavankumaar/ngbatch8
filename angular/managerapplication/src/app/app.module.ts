@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
+import { LoginModule } from './login/login.module';
+import { AppRoutingModule } from './approuting.module';
+import { CustomersModule } from './customers/customers.module';
 
 
 @NgModule({
@@ -13,7 +16,9 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    CoreModule
+    AppRoutingModule,
+    CoreModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
