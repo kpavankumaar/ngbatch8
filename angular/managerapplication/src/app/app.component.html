@@ -1,2 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar [dataFromAppC] = 'data'></app-navbar>
+<form action="">
+    <input type="text" [value]= 'title' ngModel = 'title' name= title>
+</form>
+<button (click)= 'updateTheArr(1)'>add new value</button>
 <router-outlet></router-outlet>

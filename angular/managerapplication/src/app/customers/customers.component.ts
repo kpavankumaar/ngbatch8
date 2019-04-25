@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  
+ 
+  ngOnChanges(){
+    console.log('CustomersComponent ngOnChanges')
   }
-
+  ngOnInit() {
+    console.log('customers ngOnInit');
+  }
+  constructor() { 
+    console.log('customers constructor');
+  }
 }

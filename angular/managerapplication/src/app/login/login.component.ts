@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
-
+  constructor() { 
+    console.log('LoginComponent Constructor')
+  }
+  ngOnChanges(){
+    console.log('LoginComponent ngOnChanges')
+  }
   ngOnInit() {
+    console.log('LoginComponent ngOnInit');
   }
 
 }
