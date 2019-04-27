@@ -9,6 +9,7 @@ import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './approuting.module';
 
 import { CustomersModule } from './customers/customers.module';
+import { DataService } from './core/service/data.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { CustomersModule } from './customers/customers.module';
     CoreModule,
     LoginModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

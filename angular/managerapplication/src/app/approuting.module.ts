@@ -5,8 +5,11 @@ import { CustomersComponent } from "./customers/customers.component";
 
 const routes:Routes = [
     // {path:'customers', component:CustomersComponent},
+    {path:'',redirectTo:'customers', pathMatch:'full'},
     {path:'customers', loadChildren:"./customers/customers.module#CustomersModule"},
-    {path:'orders', loadChildren:'./orders/orders.module#OrdersModule'}
+    {path:'customers:id', loadChildren:"./customer/customer.module#CustomerModule" },
+    {path:'orders', loadChildren:'./orders/orders.module#OrdersModule'},
+    
 ]
 
 @NgModule({

@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   constructor() {
     console.log('Navbar Component Constructor ');
   }
-  ngOnChanges(val,val1){
+  ngOnChanges(val){
     console.log('Navbar Compnent ngOnChanges',val);
     // this.randomName = val.currentValue
   }
