@@ -19,7 +19,7 @@ export class CustomersComponent implements OnInit {
       console.log('value')
       this.cardViewStatus = false;
       this.listViewStatus = true;
-      
+
     }
   }
  
@@ -28,13 +28,17 @@ export class CustomersComponent implements OnInit {
   }
   ngOnInit() {
     console.log('customers ngOnInit');
-    this.data.getCustomers("api/customers").subscribe(
-      (response:ICustomer[]) =>{
+    this.data.getCustomers('api/customers').subscribe(
+      (response: ICustomer[]) => {
         this.customersData = response;
         console.log(this.customersData);
       },
-      (err)=>{ console.log(err)},
-      ()=>{ console.log('completed communicating')})
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log('completed communicating');
+      });
   }
   constructor(public data:DataService) { 
     console.log('customers constructor');

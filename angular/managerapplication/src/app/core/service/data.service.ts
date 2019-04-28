@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ICustomer } from '../../shared/interfaces';
 @Injectable()
-export class DataService{
-    constructor(private http:HttpClient){
+export class DataService {
+    constructor(private http: HttpClient) {
 
     }
-    getCustomers(url):Observable<ICustomer[]> {
+    getCustomers(url): Observable<ICustomer[]> {
         return this.http.get<ICustomer[]>(url);
     }
 }

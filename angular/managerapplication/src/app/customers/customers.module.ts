@@ -4,14 +4,16 @@ import { CustomersComponent } from './customers.component';
 import { CustomersCardComponent } from './customers-card.component';
 import { CustomersGridComponent } from './customers-grid.component';
 import { CustomersRoutingModule } from './customersrouting.module';
-import { DataService } from '../core/service/data.service';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     CustomersRoutingModule
   ],
   declarations: [CustomersComponent, CustomersCardComponent, CustomersGridComponent],
-  exports:[CustomersComponent]
+  exports: [CustomersComponent]
 })
 export class CustomersModule { }

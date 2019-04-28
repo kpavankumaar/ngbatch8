@@ -14,7 +14,7 @@
     </li>
   </ul>
   <div *ngIf ="cardViewStatus" >
-    <app-customers-card></app-customers-card>
+    <app-customers-card [customersData] = 'customersData'></app-customers-card>
   </div>
   <div *ngIf ="listViewStatus">
     <app-customers-grid></app-customers-grid>

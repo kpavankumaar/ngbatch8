@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
-
+import { DataService } from './core/service/data.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,13 +11,14 @@ export class AppComponent implements OnChanges, OnInit {
   updateTheArr(val){
     this.data.push(val);
   }
-  constructor(){
+  constructor( public dataService: DataService) {
     console.log('AppComponent constructor');
   }
-  ngOnChanges(val){
+  ngOnChanges(val) {
     console.log('AppComponent ngOnChanges',val);
   }
-  ngOnInit(){
+  ngOnInit() {
+    // console.log(this.dataService.getCustomers())
     console.log('AppComponent ngOnInit');
   }
 }

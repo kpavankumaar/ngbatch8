@@ -9,21 +9,21 @@ import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './approuting.module';
 
 import { CustomersModule } from './customers/customers.module';
+import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './core/service/data.service';
-
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
+    CoreModule,
     FormsModule,
     AppRoutingModule,
-    CoreModule,
     LoginModule,
   ],
-  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
