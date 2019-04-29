@@ -10,4 +10,9 @@ export class DataService {
     getCustomers(url): Observable<ICustomer[]> {
         return this.http.get<ICustomer[]>(url);
     }
+
+    getCustomerById(id):Observable<ICustomer>{
+        const url = '/api/customers/';
+        return this.http.get<ICustomer>(url+id);
+    }
 }
