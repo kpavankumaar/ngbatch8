@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +10,23 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavbarComponent implements OnInit {
   loginLogoutText = 'Login';
   loginOrOut(){
-    // const isAuthenticated = 
+    const isAuthenticated = this.authService.isAuthenticated;
+    if(isAuthenticated){
+      this.authService.logout().subscribe((status:boolean)=>{
+        this.loginLogOutText();
+        this.router.navigate(['/customers']);
+      });
+     
+    }else{
+      this.router.navigate(['/login']);
+      
+    }
   }
-  randomName;
-  constructor() {
+
+  loginLogOutText(){
+    this.loginLogoutText = this.authService.isAuthenticated ? 'Logout' : 'Login';
+  }
+  constructor(private authService:AuthService, private router:Router) {
     console.log('Navbar Component Constructor ');
   }
   ngOnChanges(val){
