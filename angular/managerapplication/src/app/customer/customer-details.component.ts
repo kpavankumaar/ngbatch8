@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute ,private dataService:DataService) { }
+  constructor(private route: ActivatedRoute, private dataService: DataService) {}
   customer;
   ngOnInit() {
     this.route.parent.params.subscribe((params) => {

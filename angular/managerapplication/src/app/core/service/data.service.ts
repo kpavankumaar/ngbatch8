@@ -11,7 +11,7 @@ export class DataService {
         return this.http.get<ICustomer[]>(url);
     }
 
-    getCustomerById(id):Observable<ICustomer>{
+    getCustomerById(id):Observable<ICustomer> {
         const url = '/api/customers/';
         return this.http.get<ICustomer>(url+id);
     }

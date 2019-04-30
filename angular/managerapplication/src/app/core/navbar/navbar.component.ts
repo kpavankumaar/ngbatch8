@@ -6,10 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() dataFromAppC;
-  test(val){
-    console.log(val);
-    this.dataFromAppC.push(val);
+  loginLogoutText = 'Login';
+  loginOrOut(){
+    // const isAuthenticated = 
   }
   randomName;
   constructor() {
