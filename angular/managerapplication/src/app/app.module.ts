@@ -19,10 +19,10 @@ import { DataService } from './core/service/data.service';
   imports: [
     HttpClientModule,
     BrowserModule,
-    CoreModule,
-    FormsModule,
-    AppRoutingModule,
     LoginModule,
+    AppRoutingModule,
+    CoreModule,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

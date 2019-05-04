@@ -5,6 +5,7 @@ import { CustomerDetailsComponent } from '../customer/customer-details.component
 import { CustomerEditComponent } from '../customer/customer-edit.component';
 
 import { CustomerOrdersComponent } from './customer-orders.component';
+import { CanActivateGaurd } from './can-activate.gaurd';
 
 const routes: Routes = [
     {
@@ -13,14 +14,18 @@ const routes: Routes = [
         children: [
             { path: 'details', component: CustomerDetailsComponent },
             { path: 'orders', component: CustomerOrdersComponent },
-            { path: 'edit', component: CustomerEditComponent }
+            { path: 'edit',
+              component: CustomerEditComponent,
+              canActivate:[CanActivateGaurd],
+            }
         ]
     },
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [CanActivateGaurd]
 })
 export class CustomerRoutingModule {
     constructor() {
