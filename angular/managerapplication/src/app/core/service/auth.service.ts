@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
     isAuthenticated = false;
     authUrl = '/api/auth';
-    redirectUrl:string;
+    redirectUrl: string;
     @Output() authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     userAuthChanged(status: boolean) {
@@ -21,7 +21,6 @@ export class AuthService {
                     this.userAuthChanged(loggedIn);
                     return loggedIn;
                 })
-                
             );
     }
     logout() {
