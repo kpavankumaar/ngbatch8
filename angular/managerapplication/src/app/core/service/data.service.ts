@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
-import { ICustomer } from '../../shared/interfaces';
+import { ICustomer, IApiResponse } from '../../shared/interfaces';
 @Injectable()
 export class DataService {
     constructor(private http: HttpClient) {
@@ -22,7 +22,21 @@ export class DataService {
             })
         );
     }
-    getStates():Observable<any> {
+    getStates(): Observable<any> {
         return this.http.get('api/states');
+    }
+    insertCustomer(customer: ICustomer): Observable<ICustomer> {
+        return this.http.post<ICustomer>('/api/customers', customer);
+    }
+
+    updateCustomer(customer: ICustomer): Observable<boolean> {
+        return this.http.put<IApiResponse>('/api/customers/' + customer.id, customer).pipe(
+            map(res => res.status)
+        );
+    }
+    deleteCustomer(id: number): Observable<boolean> {
+        return this.http.delete<IApiResponse>('/api/customers/' + id).pipe(
+            map(res => res.status)
+        );
     }
 }
